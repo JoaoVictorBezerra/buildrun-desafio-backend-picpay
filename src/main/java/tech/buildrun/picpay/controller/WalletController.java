@@ -1,5 +1,6 @@
 package tech.buildrun.picpay.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +20,7 @@ public class WalletController {
     }
 
     @PostMapping("/wallets")
+    @Operation(summary = "Criação de carteira")
     public ResponseEntity<Wallet> createWallet(@RequestBody @Valid CreateWalletDto dto) {
 
         var wallet = walletService.createWallet(dto);
